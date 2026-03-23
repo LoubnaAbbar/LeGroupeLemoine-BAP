@@ -1,1 +1,0 @@
-# Groupe_lemoine

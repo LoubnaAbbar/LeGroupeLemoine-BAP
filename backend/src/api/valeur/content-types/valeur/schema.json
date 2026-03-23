@@ -13,6 +13,15 @@
   "attributes": {
     "titre": {
       "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "icone": {
+      "type": "string"
+    },
+    "ordre": {
+      "type": "integer"
     }
   }
 }
