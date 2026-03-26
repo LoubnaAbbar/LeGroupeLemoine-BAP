@@ -1,0 +1,45 @@
+.footer {
+  background: #ffffff;
+  border-top: 1px solid #e0e0e0;
+  padding: 20px 0;
+}
+
+.inner {
+  width: min(1040px, calc(100% - 32px));
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.socials {
+  display: flex;
+  gap: 12px;
+}
+
+.socialLink {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #1e2329;
+  text-decoration: none;
+  font-family: 'Montserrat', Arial, sans-serif;
+  transition: color 0.2s;
+}
+
+.socialLink:hover {
+  color: #00579a;
+}
+
+.copy {
+  font-family: 'Montserrat', Arial, sans-serif;
+  font-size: 0.8rem;
+  color: #8a8f98;
+}
+
+@media (max-width: 599px) {
+  .inner {
+    flex-direction: column;
+    gap: 12px;
+    text-align: center;
+  }
+}

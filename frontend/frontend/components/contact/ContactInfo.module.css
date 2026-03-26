@@ -1,0 +1,51 @@
+.card {
+  background: #d9dce2;
+  border-radius: 12px;
+  padding: 36px 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.intro {
+  font-family: 'Montserrat', Arial, sans-serif;
+  font-size: 1rem;
+  line-height: 1.65;
+  color: #1e2329;
+}
+
+.list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.item {
+  font-family: 'Montserrat', Arial, sans-serif;
+  font-size: 0.95rem;
+  color: #1e2329;
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.label {
+  font-weight: 700;
+}
+
+.link {
+  color: #00579a;
+  text-decoration: underline;
+  transition: color 0.2s ease;
+}
+
+.link:hover {
+  color: #003d6e;
+}
+
+@media (max-width: 599px) {
+  .card {
+    padding: 24px 20px;
+  }
+}

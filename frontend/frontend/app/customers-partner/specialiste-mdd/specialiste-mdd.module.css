@@ -1,0 +1,104 @@
+.main {
+  position: relative;
+  min-height: 100vh;
+  background: #f4f5f7;
+  overflow: hidden;
+}
+
+/* ---- Hero ---- */
+.hero {
+  position: relative;
+  z-index: 1;
+  background: #eceef1;
+  padding: 100px 0 80px;
+}
+
+.heroContent {
+  width: min(900px, calc(100% - 32px));
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.heroTitle {
+  font-family: 'Montserrat', Arial, sans-serif;
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 700;
+  color: #1e2329;
+  letter-spacing: -0.5px;
+}
+
+.heroSubtitle {
+  font-family: 'Montserrat', Arial, sans-serif;
+  font-size: clamp(1rem, 2vw, 1.25rem);
+  font-weight: 600;
+  color: #1e2329;
+  max-width: 520px;
+}
+
+.heroBtn {
+  align-self: flex-start;
+  background: #f4f5f7;
+  color: #1e2329;
+  font-family: 'Montserrat', Arial, sans-serif;
+  font-size: 0.9rem;
+  font-weight: 600;
+  border: 2px solid #1e2329;
+  border-radius: 999px;
+  padding: 12px 28px;
+  cursor: pointer;
+  margin-top: 8px;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.heroBtn:hover {
+  background: #1e2329;
+  color: #fff;
+}
+
+/* ---- Section MDD ---- */
+.mddSection {
+  position: relative;
+  z-index: 1;
+  padding: 80px 0;
+}
+
+.container {
+  width: min(900px, calc(100% - 32px));
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.mddTitle {
+  font-family: 'Montserrat', Arial, sans-serif;
+  font-size: clamp(1.4rem, 3vw, 1.8rem);
+  font-weight: 700;
+  color: #1e2329;
+  line-height: 1.3;
+  text-transform: uppercase;
+}
+
+.mddAccroche {
+  font-family: 'Montserrat', Arial, sans-serif;
+  font-size: clamp(1rem, 2vw, 1.3rem);
+  font-weight: 500;
+  line-height: 1.65;
+  color: #1e2329;
+  max-width: 700px;
+}
+
+.mddText {
+  font-family: 'Montserrat', Arial, sans-serif;
+  font-size: 0.9rem;
+  line-height: 1.75;
+  color: #3a3f47;
+  max-width: 700px;
+}
+
+@media (max-width: 599px) {
+  .hero { padding: 60px 0 40px; }
+  .mddSection { padding: 48px 0; }
+}
