@@ -1,87 +1,67 @@
 .main {
   position: relative;
   min-height: 100vh;
-  background: #f4f5f7;
+  background: #efefef;
   padding: 60px 0 100px;
-  overflow: hidden;
 }
 
-/* Cercles en bas à droite */
-.blobCercles {
-  position: absolute;
-  bottom: 80px;
-  right: -40px;
-  width: 320px;
-  height: 320px;
-  background-image: url('/images/Cercles_1.png');
-  background-size: contain;
-  background-repeat: no-repeat;
-  pointer-events: none;
-  z-index: 0;
-}
-
-/* Vague du haut (Vector_2) */
-.blobWaveTop {
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 60%;
-  height: 220px;
-  background-image: url('/images/Vector_2.png');
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: top right;
-  pointer-events: none;
-  z-index: 0;
-  opacity: 0.6;
-}
-
-/* Vague du bas (Rectangle_11) */
-.blobWaveBottom {
-  position: absolute;
-  bottom: 60px;
-  left: 0;
-  width: 70%;
-  height: 180px;
-  background-image: url('/images/Rectangle_11.png');
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: bottom left;
-  pointer-events: none;
-  z-index: 0;
-  opacity: 0.5;
-}
-
-/* Container principal */
 .container {
   position: relative;
   z-index: 1;
-  width: min(760px, calc(100% - 32px));
+  width: min(720px, calc(100% - 32px));
   margin: 0 auto;
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  gap: 32px;
 }
 
-.pageTitle {
+.recaptcha {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.recaptchaLabel {
   font-family: 'Montserrat', Arial, sans-serif;
-  font-size: clamp(2rem, 5vw, 2.75rem);
-  font-weight: 700;
+  font-size: 0.9rem;
+  font-weight: 600;
   color: #1e2329;
-  letter-spacing: -0.5px;
+}
+
+.recaptchaBox {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: rgba(0, 93, 170, 0.30);
+  border-radius: 15px;
+  padding: 0 20px;
+  width: 472px;
+  height: 80px;
+  max-width: 100%;
+}
+
+.recaptchaText {
+  font-family: 'Montserrat', Arial, sans-serif;
+  font-size: 0.88rem;
+  color: #1e2329;
+  flex: 1;
+}
+
+/* Scroll to top */
+.scrollTop {
+  position: fixed;
+  bottom: 32px;
+  right: 32px;
+  width: 52px;
+  height: 52px;
+  cursor: pointer;
+  z-index: 100;
+  background: none;
+  border: none;
+  padding: 0;
 }
 
 @media (max-width: 599px) {
-  .main {
-    padding: 32px 0 64px;
-  }
-  .blobWaveTop,
-  .blobWaveBottom {
-    display: none;
-  }
-  .blobCercles {
-    width: 200px;
-    height: 200px;
-    right: -20px;
-  }
+  .main { padding: 32px 0 64px; }
+  .recaptchaBox { min-width: 100%; }
 }
