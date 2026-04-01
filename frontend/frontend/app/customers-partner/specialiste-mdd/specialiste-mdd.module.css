@@ -4,6 +4,7 @@
   background: #efefef;
   overflow-x: hidden;
 }
+
 /* ---- Hero ---- */
 .hero {
   position: relative;
@@ -53,35 +54,32 @@
 /* ---- Section MDD ---- */
 .mddSection {
   position: relative;
-  z-index: 1;
   padding: 50px 0 0;
-  overflow: visible;
 }
 
 .mddContainer {
-  width: 100%;
-  max-width: 1040px;
+  width: min(1040px, calc(100% - 64px));
   margin: 0 auto;
-  padding: 0 32px;
   display: flex;
   flex-direction: column;
-  gap: 32px;
+  gap: 0;
 }
+
 .mddTitle {
   font-family: 'Montserrat', Arial, sans-serif;
   font-size: clamp(1.1rem, 2vw, 1.4rem);
   font-weight: 700;
   color: #5190C2;
   letter-spacing: 0.3px;
+  margin-bottom: 40px;
 }
 
-/* Blob bleu avec texte par-dessus */
-/* Blob bleu avec texte par-dessus */
+/* Blob bleu - couvre tout le bas */
 .mddBlobWrapper {
   position: relative;
-  width: calc(100% + 64px);
-  margin-left: -32px;
-  min-height: 500px;
+  width: calc(100% + 200px);
+  margin-left: -100px;
+  min-height: 600px;
 }
 
 .mddBlob {
@@ -98,9 +96,9 @@
   z-index: 1;
   display: flex;
   flex-direction: column;
-  gap: 28px;
-  padding: 80px 80px;
-  max-width: 800px;
+  gap: 40px;
+  padding: 120px 160px 100px;
+  max-width: 680px;
 }
 
 .mddAccroche {
@@ -131,8 +129,22 @@
   padding: 0;
 }
 
+@media (max-width: 768px) {
+  .mddBlobWrapper {
+    width: calc(100% + 64px);
+    margin-left: -32px;
+  }
+  .mddTexts {
+    padding: 80px 48px 80px;
+  }
+}
+
 @media (max-width: 599px) {
   .hero { height: 280px; }
   .heroContent { padding: 24px 20px; }
-  .mddTexts { padding: 40px 24px; }
+  .mddBlobWrapper {
+    width: calc(100% + 32px);
+    margin-left: -16px;
+  }
+  .mddTexts { padding: 60px 32px 60px; }
 }

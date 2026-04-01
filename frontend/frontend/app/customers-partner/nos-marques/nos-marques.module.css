@@ -1,6 +1,342 @@
 .main {
   position: relative;
   min-height: 100vh;
-  background: #f4f5f7;
+  background: #efefef;
+  overflow-x: hidden;
+}
+
+/* ---- Hero ---- */
+.hero {
+  position: relative;
+  width: 100%;
+  height: 420px;
   overflow: hidden;
+}
+
+.heroImage {
+  object-fit: cover;
+  object-position: center;
+}
+
+.heroOverlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+.heroContent {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 48px 60px;
+  gap: 16px;
+}
+
+.heroTitle {
+  font-family: 'Montserrat', Arial, sans-serif;
+  font-size: clamp(1.8rem, 4vw, 2.5rem);
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.heroText {
+  font-family: 'Montserrat', Arial, sans-serif;
+  font-size: 0.88rem;
+  line-height: 1.65;
+  color: #ffffff;
+  max-width: 520px;
+}
+
+/* ---- Blob séparateurs ---- */
+.blobTop {
+  position: relative;
+  width: calc(100% + 200px);
+  margin-left: -100px;
+  height: 180px;
+  margin-top: -40px;
+}
+
+.blobBottom {
+  position: relative;
+  width: calc(100% + 200px);
+  margin-left: -100px;
+  height: 600px;
+}
+
+.blobImg {
+  object-fit: fill;
+}
+
+/* ---- Section Peaudouce intro ---- */
+.peaudouceIntro {
+  text-align: center;
+  padding: 60px 0 40px;
+  width: min(760px, calc(100% - 32px));
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.peaudouceTitle {
+  font-family: 'Montserrat', Arial, sans-serif;
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+  font-weight: 700;
+  color: #1e2329;
+}
+
+.peaudouceSoustitre {
+  font-family: 'Montserrat', Arial, sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #1e2329;
+}
+
+.peaudouceText {
+  font-family: 'Montserrat', Arial, sans-serif;
+  font-size: 0.88rem;
+  line-height: 1.75;
+  color: #3a3f47;
+  text-align: left;
+}
+
+/* ---- Timeline ---- */
+.timeline {
+  padding: 40px 0 60px;
+  width: min(900px, calc(100% - 32px));
+  margin: 0 auto;
+}
+
+.timelineTitle {
+  font-family: 'Montserrat', Arial, sans-serif;
+  font-size: clamp(1.3rem, 2.5vw, 1.7rem);
+  font-weight: 700;
+  color: #1e2329;
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.timelineContent {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+}
+
+.timelineLine {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: #1e2329;
+  transform: translateX(-50%);
+}
+
+.timelineItem {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: center;
+}
+
+.timelineDot {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: #1e2329;
+  z-index: 2;
+}
+
+.timelineLeft {
+  display: flex;
+  justify-content: flex-end;
+  padding-right: 32px;
+}
+
+.timelineRight {
+  padding-left: 32px;
+}
+
+.timelineImg {
+  border-radius: 12px;
+  object-fit: cover;
+  border: 3px solid #5190C2;
+}
+
+.timelineItemTitle {
+  font-family: 'Montserrat', Arial, sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #1e2329;
+  margin-bottom: 12px;
+}
+
+.timelineItemText {
+  font-family: 'Montserrat', Arial, sans-serif;
+  font-size: 0.85rem;
+  line-height: 1.65;
+  color: #3a3f47;
+}
+
+/* ---- Produits ---- */
+.produits {
+  padding: 40px 0 60px;
+  width: min(900px, calc(100% - 32px));
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+}
+
+.produitsTitle {
+  font-family: 'Montserrat', Arial, sans-serif;
+  font-size: clamp(1.2rem, 2vw, 1.5rem);
+  font-weight: 700;
+  color: #1e2329;
+  text-align: center;
+}
+
+.produitItem {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: center;
+}
+
+.produitReverse {
+  direction: rtl;
+}
+
+.produitReverse > * {
+  direction: ltr;
+}
+
+.produitImg {
+  border-radius: 12px;
+  object-fit: cover;
+  width: 100%;
+  height: auto;
+  border: 3px solid #5190C2;
+}
+
+.produitInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.produitNom {
+  font-family: 'Montserrat', Arial, sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #1e2329;
+}
+
+.produitList {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.produitList li {
+  font-family: 'Montserrat', Arial, sans-serif;
+  font-size: 0.85rem;
+  color: #3a3f47;
+  line-height: 1.5;
+  padding-left: 16px;
+  position: relative;
+}
+
+.produitList li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: #5190C2;
+}
+
+/* ---- Autres marques ---- */
+.autresMarques {
+  position: relative;
+  z-index: 1;
+  padding: 80px 60px 100px;
+  width: min(900px, calc(100% - 32px));
+  margin: -500px auto 0;
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+}
+
+.marqueItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 32px;
+}
+
+.marqueLogo {
+  object-fit: contain;
+  border-radius: 8px;
+  flex-shrink: 0;
+}
+
+.marqueInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.marqueNom {
+  font-family: 'Montserrat', Arial, sans-serif;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #1e2329;
+}
+
+.marqueText {
+  font-family: 'Montserrat', Arial, sans-serif;
+  font-size: 0.85rem;
+  line-height: 1.65;
+  color: #3a3f47;
+}
+
+/* Scroll to top */
+.scrollTop {
+  position: fixed;
+  bottom: 32px;
+  right: 32px;
+  width: 52px;
+  height: 52px;
+  cursor: pointer;
+  z-index: 100;
+  background: none;
+  border: none;
+  padding: 0;
+}
+
+/* ---- Responsive ---- */
+@media (max-width: 768px) {
+  .timelineItem { grid-template-columns: 1fr; }
+  .timelineLine { left: 16px; }
+  .timelineDot { left: 16px; }
+  .timelineLeft { justify-content: flex-start; padding-right: 0; padding-left: 40px; }
+  .timelineRight { padding-left: 40px; }
+  .produitItem { grid-template-columns: 1fr; }
+  .produitReverse { direction: ltr; }
+  .blobTop, .blobBottom { width: calc(100% + 64px); margin-left: -32px; }
+}
+
+@media (max-width: 599px) {
+  .hero { height: 280px; }
+  .heroContent { padding: 24px 20px; }
+  .autresMarques { padding: 60px 24px 80px; margin-top: -400px; }
+  .marqueItem { flex-direction: column; }
 }
