@@ -1,0 +1,196 @@
+/* batonnets.module.css */
+
+.container { background: #ffffff; min-height: 100vh; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; color: #1a1a1a; position: relative; overflow-x: hidden; width: 100%; }
+.inner { max-width: 1100px; margin: 0 auto; padding: 0 80px; position: relative; z-index: 5; }
+
+/* ── Formes de fond ── */
+.formeOrga  { position: absolute; top: 0; left: 0; width: 100%; z-index: 1; pointer-events: none; }
+.vector2    { position: absolute; top: 1000px; left: 0; width: 100%; height: 600px; z-index: 1; pointer-events: none; }
+.rect11     { position: absolute; top: 1600px; left: 0; width: 100%; height: 1700px; background: #e8e8e8; z-index: 2; pointer-events: none; }
+.rect11::after { content: ''; position: absolute; bottom: -40px; left: 0; width: 100%; height: 80px; background: #fff; border-radius: 50% 50% 0 0 / 40px 40px 0 0; z-index: 3; }
+.formeOrga3 { position: absolute; top: 3200px; left: 0; width: 100%; z-index: 1; pointer-events: none; }
+
+/* ── Hero ── */
+.hero { position: relative; z-index: 5; padding: 0; margin: 0; }
+
+/* Conteneur image — assez haut pour voir la photo + la vague bleue */
+.heroImg {
+  width: 100%;
+  height: 480px;
+  position: relative;
+  overflow: hidden;  /* clip la vague qui déborde */
+}
+
+/* Texte positionné sur la zone bleue (bas du hero) */
+.heroText {
+  position: absolute;
+  bottom: 32px;
+  left: 80px;
+  z-index: 3;
+  max-width: 520px;
+}
+.heroText h1 {
+  font-size: 38px;
+  font-weight: 800;
+  color: #fff;
+  line-height: 1.1;
+  margin-bottom: 12px;
+}
+.heroText p {
+  font-size: 13px;
+  color: rgba(255,255,255,0.9);
+  line-height: 1.75;
+}
+
+/* ── Bandeau produit unique ── */
+.prodBanner {
+  width: 100%;
+  padding: 40px 0 50px;
+}
+
+.prodBannerImg {
+  position: relative;
+  width: 100%;
+  height: 380px;
+  border-radius: 24px;
+  overflow: hidden;
+}
+
+.prodBannerOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.55) 0%,
+    rgba(0, 0, 0, 0.15) 50%,
+    transparent 100%
+  );
+  z-index: 1;
+}
+
+.prodBannerText {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 52px;
+  gap: 24px;
+}
+
+.prodBannerText h2 {
+  font-size: 30px;
+  font-weight: 800;
+  color: #fff;
+  margin: 0;
+  letter-spacing: -0.3px;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.18);
+}
+
+.prodBannerTags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.prodBannerTag {
+  background: rgba(255, 255, 255, 0.18);
+  border: 1.5px solid rgba(255, 255, 255, 0.55);
+  color: #fff;
+  font-size: 13px;
+  font-weight: 600;
+  padding: 10px 20px;
+  border-radius: 40px;
+  backdrop-filter: blur(4px);
+  letter-spacing: 0.2px;
+  transition: background 0.2s;
+}
+
+.prodBannerTag:hover {
+  background: rgba(255, 255, 255, 0.32);
+}
+
+/* responsive */
+@media (max-width: 768px) {
+  .prodBannerImg { height: 260px; }
+  .prodBannerText { padding: 0 24px; }
+  .prodBannerText h2 { font-size: 20px; }
+  .prodBannerTag { font-size: 11px; padding: 8px 14px; }
+}
+/* ── Bannière ── */
+.banner { position: relative; z-index: 5; padding: 56px 0 36px; }
+.banner h2 { font-size: 32px; font-weight: 800; letter-spacing: -0.3px; color: #1a1a1a; }
+
+/* ── Sections milieu (embouts, sticks, packagings, baby care) ── */
+.sections { position: relative; z-index: 5; padding: 40px 0; }
+
+.row  { display: grid; grid-template-columns: 1fr 1.4fr; gap: 48px; align-items: center; margin-bottom: 48px; }
+.rowR { display: grid; grid-template-columns: 1fr 1.4fr; gap: 48px; align-items: center; margin-bottom: 48px; direction: rtl; }
+.rowR > * { direction: ltr; }
+
+.txt h3 { font-size: 20px; font-weight: 800; margin-bottom: 14px; color: #2b2929; }
+.txt p  { font-size: 14px; color: #444; line-height: 1.75; margin-bottom: 8px; }
+
+/* Forme pill/capsule horizontale — fine, bords bien fermés */
+.imgPill {
+  width: 100%;
+  height: 180px;
+  border-radius: 90px;      /* exactement moitié de 180px → demi-cercles parfaits sur les côtés */
+  overflow: hidden;
+  border: 4px solid #5190C2;
+  background: #f0f0f0;
+  position: relative;
+  flex-shrink: 0;
+  box-sizing: border-box;
+}
+
+/* ── Icônes ── */
+.icons { position: relative; z-index: 5; padding: 40px 0 60px; }
+.iconsGrid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 40px; max-width: 700px; }
+.iconCard { display: flex; flex-direction: column; align-items: center; gap: 14px; text-align: center; }
+.iconCircle { width: 90px; height: 90px; border-radius: 50%; background: #e0e0e0; display: flex; align-items: center; justify-content: center; font-size: 32px; }
+.iconCard h4 { font-size: 16px; font-weight: 700; margin-bottom: 4px; }
+.iconCard p  { font-size: 13px; color: #555; line-height: 1.6; }
+
+/* ── Certifications ── */
+.cert { position: relative; z-index: 5; padding: 60px 0 40px; }
+.cert h2 { font-size: 28px; font-weight: 800; margin-bottom: 24px;color: #2d699b; }
+.certGrid { display: flex; flex-wrap: wrap; gap: 14px; margin-bottom: 12px; }
+.certBadge { background: #e8e8e8; border-radius: 10px; padding: 14px 20px; font-size: 12px; color: #555; min-width: 130px; text-align: center; }
+.certBadge strong { display: block; font-size: 13px; color: #222; margin-bottom: 3px; }
+.certNote { font-size: 11.5px; color: #888; }
+
+/* ── Autres produits ── */
+.others { position: relative; z-index: 5; padding: 48px 0 80px; }
+.others h3 { font-size: 18px; font-weight: 700; margin-bottom: 24px; text-align: center;color:#125e9c; }
+.othersGrid { display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; }
+.otherCard { display: flex; flex-direction: column; align-items: center; gap: 10px; text-decoration: none; color: #333; }
+.otherCardImg { width: 150px; height: 110px; border-radius: 10px; overflow: hidden; transition: opacity 0.2s; }
+.otherCardImg img { width: 100%; height: 100%; object-fit: cover; }
+.otherCardImg:hover { opacity: 0.85; }
+.otherCard span { font-size: 12px; font-weight: 600; text-align: center; }
+
+/* ── Footer ── */
+.footer { background: #fff; border-top: 1px solid #e0e0e0; padding: 18px 80px; display: flex; justify-content: space-between; align-items: center; font-size: 11.5px; color: #666; position: relative; z-index: 5; }
+.footerSocials { display: flex; gap: 12px; }
+.footerSocials a { color: #555; font-size: 15px; text-decoration: none; }
+.footerSocials a:hover { color: #000; }
+
+/* ── Responsive ── */
+@media (max-width: 1024px) {
+  .inner { padding-left: 40px; padding-right: 40px; }
+  .heroContent { padding-left: 40px; padding-right: 40px; }
+  .hero h1 { font-size: 30px; }
+  .grid4 { grid-template-columns: repeat(2,1fr); }
+  .footer { padding-left: 40px; padding-right: 40px; }
+}
+@media (max-width: 768px) {
+  .inner { padding-left: 20px; padding-right: 20px; }
+  .heroContent { padding-left: 20px; padding-right: 20px; }
+  .hero h1 { font-size: 24px; }
+  .grid4 { grid-template-columns: 1fr; }
+  .row, .rowR { grid-template-columns: 1fr; gap: 24px; direction: ltr; }
+  .iconsGrid { grid-template-columns: 1fr; }
+  .footer { padding-left: 20px; padding-right: 20px; }
+}

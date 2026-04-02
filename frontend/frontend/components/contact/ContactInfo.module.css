@@ -1,0 +1,43 @@
+.card {
+  background: #5190C2;
+  border-radius: 16px;
+  padding: 32px 36px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  max-width: 460px;
+}
+
+.title {
+  font-family: 'Montserrat', Arial, sans-serif;
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.intro {
+  font-family: 'Montserrat', Arial, sans-serif;
+  font-size: 0.88rem;
+  line-height: 1.65;
+  color: #ffffff;
+}
+
+.list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-family: 'Montserrat', Arial, sans-serif;
+  font-size: 0.88rem;
+  color: #ffffff;
+  line-height: 1.5;
+}
+
+.link {
+  color: #ffffff;
+  text-decoration: underline;
+}
+
+@media (max-width: 599px) {
+  .card { padding: 24px 20px; max-width: 100%; }
+}

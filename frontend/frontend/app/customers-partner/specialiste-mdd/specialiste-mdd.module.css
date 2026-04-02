@@ -1,0 +1,137 @@
+.main {
+  position: relative;
+  min-height: 100vh;
+  background: #efefef;
+  overflow-x: hidden;
+}
+
+/* ---- Hero ---- */
+.hero {
+  position: relative;
+  width: 100%;
+  height: 480px;
+  overflow: hidden;
+}
+
+.heroImage {
+  object-fit: cover;
+  object-position: center;
+}
+
+.heroOverlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.15);
+  z-index: 1;
+}
+
+.heroContent {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 48px 60px;
+  gap: 10px;
+}
+
+.heroTitle {
+  font-family: 'Montserrat', Arial, sans-serif;
+  font-size: clamp(1.8rem, 4vw, 2.5rem);
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.heroSubtitle {
+  font-family: 'Montserrat', Arial, sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  color: #ffffff;
+  max-width: 480px;
+}
+
+/* ---- Section MDD ---- */
+.mddSection {
+  position: relative;
+  padding: 60px 0 0;
+}
+
+.mddContainer {
+  width: min(1100px, calc(100% - 64px));
+  margin: 0 auto;
+}
+
+.mddTitle {
+  font-family: 'Montserrat', Arial, sans-serif;
+  font-size: clamp(1.1rem, 2vw, 1.4rem);
+  font-weight: 700;
+  color: #5190C2;
+  letter-spacing: 0.3px;
+  margin-bottom: 50px;
+}
+
+/* Blob bleu qui touche les bords */
+.mddBlobWrapper {
+  position: relative;
+  width: 100vw;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  min-height: 600px;
+  display: flex;
+  align-items: center;
+
+}
+
+.mddBlob {
+  z-index: 0;
+  object-fit: cover; /* Remplit sans déformer */
+  object-position: center top;
+}
+
+/* Zone de contenu réalignée sur le container global */
+.mddContentArea {
+  position: relative;
+  z-index: 1;
+  width: min(1100px, calc(100% - 64px));
+  margin: 0 auto;
+  padding: 80px 0;
+}
+
+.mddTexts {
+  max-width: 700px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.mddAccroche {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.05rem;
+  font-weight: 600;
+  line-height: 1.7;
+  color: #ffffff;
+}
+
+.mddText {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.95rem;
+  line-height: 1.8;
+  color: #ffffff;
+  opacity: 0.95;
+}
+
+
+
+
+/* Mobile & Tablet */
+@media (max-width: 768px) {
+  .mddContentArea {
+    padding: 60px 20px;
+  }
+  .mddBlobWrapper {
+    min-height: 600px;
+  }
+}
