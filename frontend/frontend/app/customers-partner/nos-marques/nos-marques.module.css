@@ -1,16 +1,22 @@
 .main {
   position: relative;
-  min-height: 100vh;
   background: #efefef;
   overflow-x: hidden;
 }
 
-/* ---- Hero ---- */
-.hero {
+/* ---- HERO WRAPPER ---- */
+.heroWrapper {
   position: relative;
   width: 100%;
-  height: 420px;
+  height: 1124px; /* Fixé sur la hauteur de la maquette Figma */
   overflow: hidden;
+}
+
+/* Image fond */
+.heroImgBox {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
 }
 
 .heroImage {
@@ -18,113 +24,105 @@
   object-position: center;
 }
 
-.heroOverlay {
+/* Blob bleu superposé */
+.blobHero {
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, 0.2);
-  z-index: 1;
+  z-index: 3;
 }
 
-.heroContent {
+.blobHeroImg {
+  object-fit: fill; /* Étire le blob pour bien couvrir toute la largeur */
+}
+
+/* Texte sur le blob - Ajusté pour la maquette (plus bas et plus centré) */
+.blobHeroContent {
   position: absolute;
-  inset: 0;
-  z-index: 2;
+  /* On le descend précisément à la bonne hauteur */
+  top: 520px; 
+  /* On le pousse vers le centre de la vague bleue */
+  left: 15%; 
+  z-index: 4;
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
-  padding: 48px 60px;
-  gap: 16px;
+  width: 60%;
+  max-width: 750px;
 }
 
 .heroTitle {
   font-family: 'Montserrat', Arial, sans-serif;
-  font-size: clamp(1.8rem, 4vw, 2.5rem);
+  font-size: clamp(2rem, 4vw, 3rem);
   font-weight: 700;
   color: #ffffff;
+  margin-bottom: 20px;
 }
 
 .heroText {
   font-family: 'Montserrat', Arial, sans-serif;
-  font-size: 0.88rem;
-  line-height: 1.65;
+  font-size: 1rem;
+  line-height: 1.6;
   color: #ffffff;
-  max-width: 520px;
+  max-width: 550px;
+  margin-bottom: 50px;
 }
 
-/* ---- Blob séparateurs ---- */
-.blobTop {
+/* Bloc Peaudouce */
+.peaudouceGroup {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centre le bloc dans son parent */
+  width: 100%;
+  text-align: center;
+}
+
+.peaudouceTitleBlob {
+  font-family: 'Montserrat', Arial, sans-serif;
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0;
+}
+
+.peaudouceSoustitreBlob {
+  font-family: 'Montserrat', Arial, sans-serif;
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: #ffffff;
+  margin-top: 5px;
+}
+
+.histoireTitleBlob {
+  font-family: 'Montserrat', Arial, sans-serif;
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-top: 70px;
+  text-align: center;
+  width: 100%;
+}
+
+/* ---- SECTION GRISE ---- */
+.greySection {
   position: relative;
-  width: calc(100% + 200px);
-  margin-left: -100px;
-  height: 180px;
+  z-index: 2;
+  background: #efefef;
+  padding-top: 40px;
+  padding-bottom: 60px;
   margin-top: -40px;
 }
 
-.blobBottom {
-  position: relative;
-  width: calc(100% + 200px);
-  margin-left: -100px;
-  height: 600px;
-}
-
-.blobImg {
-  object-fit: fill;
-}
-
-/* ---- Section Peaudouce intro ---- */
-.peaudouceIntro {
-  text-align: center;
-  padding: 60px 0 40px;
-  width: min(760px, calc(100% - 32px));
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-}
-
-.peaudouceTitle {
-  font-family: 'Montserrat', Arial, sans-serif;
-  font-size: clamp(1.6rem, 3vw, 2.2rem);
-  font-weight: 700;
-  color: #1e2329;
-}
-
-.peaudouceSoustitre {
-  font-family: 'Montserrat', Arial, sans-serif;
-  font-size: 1rem;
-  font-weight: 600;
-  color: #1e2329;
-}
-
-.peaudouceText {
-  font-family: 'Montserrat', Arial, sans-serif;
-  font-size: 0.88rem;
-  line-height: 1.75;
-  color: #3a3f47;
-  text-align: left;
-}
-
-/* ---- Timeline ---- */
+/* ---- TIMELINE ---- */
 .timeline {
-  padding: 40px 0 60px;
-  width: min(900px, calc(100% - 32px));
+  width: min(820px, calc(100% - 32px));
   margin: 0 auto;
+  padding: 0 0 60px;
 }
 
-.timelineTitle {
-  font-family: 'Montserrat', Arial, sans-serif;
-  font-size: clamp(1.3rem, 2.5vw, 1.7rem);
-  font-weight: 700;
-  color: #1e2329;
-  text-align: center;
-  margin-bottom: 48px;
-}
-
-.timelineContent {
+.timelineInner {
   position: relative;
   display: flex;
   flex-direction: column;
-  gap: 60px;
+  gap: 52px;
 }
 
 .timelineLine {
@@ -135,108 +133,105 @@
   width: 2px;
   background: #1e2329;
   transform: translateX(-50%);
+  z-index: 0;
 }
 
-.timelineItem {
+.timelineRow {
   position: relative;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 40px;
   align-items: center;
+  min-height: 190px;
 }
 
 .timelineDot {
   position: absolute;
   left: 50%;
-  transform: translateX(-50%);
-  width: 14px;
-  height: 14px;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 13px;
+  height: 13px;
   border-radius: 50%;
   background: #1e2329;
   z-index: 2;
 }
 
-.timelineLeft {
+.sideLeft {
   display: flex;
   justify-content: flex-end;
-  padding-right: 32px;
+  align-items: center;
+  padding-right: 36px;
 }
 
-.timelineRight {
-  padding-left: 32px;
+.sideRight {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 10px;
+  padding-left: 36px;
 }
 
 .timelineImg {
-  border-radius: 12px;
+  border-radius: 10px;
   object-fit: cover;
   border: 3px solid #5190C2;
 }
 
 .timelineItemTitle {
   font-family: 'Montserrat', Arial, sans-serif;
-  font-size: 1rem;
+  font-size: 0.88rem;
   font-weight: 700;
   color: #1e2329;
-  margin-bottom: 12px;
 }
 
 .timelineItemText {
   font-family: 'Montserrat', Arial, sans-serif;
-  font-size: 0.85rem;
+  font-size: 0.78rem;
   line-height: 1.65;
   color: #3a3f47;
 }
 
-/* ---- Produits ---- */
+/* ---- PRODUITS ---- */
 .produits {
-  padding: 40px 0 60px;
-  width: min(900px, calc(100% - 32px));
+  width: min(820px, calc(100% - 32px));
   margin: 0 auto;
   display: flex;
   flex-direction: column;
-  gap: 48px;
+  gap: 44px;
 }
 
 .produitsTitle {
   font-family: 'Montserrat', Arial, sans-serif;
-  font-size: clamp(1.2rem, 2vw, 1.5rem);
+  font-size: clamp(1rem, 2vw, 1.3rem);
   font-weight: 700;
   color: #1e2329;
   text-align: center;
 }
 
-.produitItem {
+.produitRow {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 40px;
+  gap: 36px;
   align-items: center;
 }
 
-.produitReverse {
-  direction: rtl;
-}
-
-.produitReverse > * {
-  direction: ltr;
-}
-
 .produitImg {
-  border-radius: 12px;
-  object-fit: cover;
   width: 100%;
-  height: auto;
+  height: 210px;
+  object-fit: cover;
+  border-radius: 10px;
   border: 3px solid #5190C2;
 }
 
 .produitInfo {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 12px;
 }
 
 .produitNom {
   font-family: 'Montserrat', Arial, sans-serif;
-  font-size: 1rem;
+  font-size: 0.88rem;
   font-weight: 700;
   color: #1e2329;
 }
@@ -250,7 +245,7 @@
 
 .produitList li {
   font-family: 'Montserrat', Arial, sans-serif;
-  font-size: 0.85rem;
+  font-size: 0.78rem;
   color: #3a3f47;
   line-height: 1.5;
   padding-left: 16px;
@@ -262,53 +257,75 @@
   position: absolute;
   left: 0;
   color: #5190C2;
+  font-weight: 700;
 }
 
-/* ---- Autres marques ---- */
+/* ---- UNION BLOB + AUTRES MARQUES ---- */
+.unionSection {
+  position: relative;
+  width: calc(100% + 200px);
+  margin-left: -100px;
+  min-height: 700px;
+  margin-top: 60px;
+}
+
+.unionImg {
+  object-fit: fill;
+  z-index: 0;
+}
+
 .autresMarques {
   position: relative;
   z-index: 1;
-  padding: 80px 60px 100px;
-  width: min(900px, calc(100% - 32px));
-  margin: -500px auto 0;
+  padding: 160px 160px 100px;
   display: flex;
   flex-direction: column;
-  gap: 48px;
+  gap: 52px;
+  max-width: 860px;
+  margin: 0 auto;
 }
 
 .marqueItem {
   display: flex;
   align-items: flex-start;
-  gap: 32px;
+  gap: 28px;
+}
+
+.marqueLogoBox {
+  flex-shrink: 0;
+  width: 130px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .marqueLogo {
   object-fit: contain;
-  border-radius: 8px;
-  flex-shrink: 0;
+  width: 130px;
+  height: auto;
 }
 
 .marqueInfo {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 8px;
 }
 
 .marqueNom {
   font-family: 'Montserrat', Arial, sans-serif;
-  font-size: 0.95rem;
+  font-size: 0.85rem;
   font-weight: 700;
-  color: #1e2329;
+  color: #ffffff;
 }
 
 .marqueText {
   font-family: 'Montserrat', Arial, sans-serif;
-  font-size: 0.85rem;
+  font-size: 0.78rem;
   line-height: 1.65;
-  color: #3a3f47;
+  color: #ffffff;
 }
 
-/* Scroll to top */
+/* ---- SCROLL TO TOP ---- */
 .scrollTop {
   position: fixed;
   bottom: 32px;
@@ -322,21 +339,25 @@
   padding: 0;
 }
 
-/* ---- Responsive ---- */
+/* ---- RESPONSIVE ---- */
 @media (max-width: 768px) {
-  .timelineItem { grid-template-columns: 1fr; }
+  .heroWrapper { height: 900px; }
+  /* Ajustement mobile du blob text pour rester dans le cadre */
+  .blobHeroContent { top: 400px; left: 8%; width: 84%; }
+  
+  .timelineRow { grid-template-columns: 1fr; }
   .timelineLine { left: 16px; }
-  .timelineDot { left: 16px; }
-  .timelineLeft { justify-content: flex-start; padding-right: 0; padding-left: 40px; }
-  .timelineRight { padding-left: 40px; }
-  .produitItem { grid-template-columns: 1fr; }
-  .produitReverse { direction: ltr; }
-  .blobTop, .blobBottom { width: calc(100% + 64px); margin-left: -32px; }
+  .timelineDot { left: 16px; top: 0; transform: translateX(-50%); }
+  .sideLeft { justify-content: flex-start; padding-right: 0; padding-left: 36px; }
+  .sideRight { padding-left: 36px; }
+  .produitRow { grid-template-columns: 1fr; }
+  .unionSection { width: calc(100% + 64px); margin-left: -32px; }
+  .autresMarques { padding: 80px 48px; }
 }
 
 @media (max-width: 599px) {
-  .hero { height: 280px; }
-  .heroContent { padding: 24px 20px; }
-  .autresMarques { padding: 60px 24px 80px; margin-top: -400px; }
+  .heroWrapper { height: 750px; }
+  .blobHeroContent { top: 320px; left: 5%; width: 90%; }
   .marqueItem { flex-direction: column; }
+  .autresMarques { padding: 60px 24px; }
 }

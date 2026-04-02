@@ -37,14 +37,19 @@ export default function SpecialisteMDDPage() {
         <section className={styles.mddSection}>
           <div className={styles.mddContainer}>
             <h2 className={styles.mddTitle}>QU'EST-CE QUE LES MDD ?</h2>
+          </div>
 
-            <div className={styles.mddBlobWrapper}>
-              <Image
-                src="/images/union-blob.png"
-                alt=""
-                fill
-                className={styles.mddBlob}
-              />
+          {/* Wrapper Full Width */}
+          <div className={styles.mddBlobWrapper}>
+            <Image
+              src="/images/union-blob.png"
+              alt=""
+              fill
+              priority
+              className={styles.mddBlob}
+            />
+            {/* Overlay de contenu pour l'alignement interne */}
+            <div className={styles.mddContentArea}>
               <div className={styles.mddTexts}>
                 <p className={styles.mddAccroche}>
                   Les Marques De Distributeur (MDD) désignent des produits fabriqués
