@@ -4,16 +4,22 @@ const imgLogoFacebook = "https://www.figma.com/api/mcp/asset/c1b5b87c-720b-4f43-
 
 export default function Footer() {
   return (
-    <footer className="relative w-full bg-white border-t border-gray-200" style={{ height: "133px" }}>
-      <div className="absolute top-0 left-0 right-0 h-[133px] bg-[#FFFFFF] flex items-center px-[210px] justify-between">
-        <div className="flex items-center gap-3">
+    <footer className="relative w-full bg-white border-t border-gray-200">
+      <div className="w-full min-h-[133px] bg-[#FFFFFF] flex flex-col md:flex-row items-center justify-center md:justify-between gap-4 md:gap-0 px-4 sm:px-6 md:px-10 lg:px-[210px] py-6 md:py-0">
+        {/* Social Media Icons */}
+        <div className="flex items-center gap-6 md:gap-3 order-2 md:order-1">
           <a
             href="https://www.facebook.com/"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Facebook"
+            className="hover:opacity-70 transition-opacity"
           >
-            <img src={imgLogoFacebook} alt="Facebook" className="w-[17px] h-[18px] object-contain" />
+            <img 
+              src={imgLogoFacebook} 
+              alt="Facebook" 
+              className="w-[17px] h-[18px] object-contain" 
+            />
           </a>
 
           <a
@@ -21,8 +27,13 @@ export default function Footer() {
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Instagram"
+            className="hover:opacity-70 transition-opacity"
           >
-            <img src={imgLogoInstagram} alt="Instagram" className="w-[21px] h-[21px] object-contain" />
+            <img 
+              src={imgLogoInstagram} 
+              alt="Instagram" 
+              className="w-[21px] h-[21px] object-contain" 
+            />
           </a>
 
           <a
@@ -30,13 +41,19 @@ export default function Footer() {
             target="_blank"
             rel="noopener noreferrer"
             aria-label="LinkedIn"
+            className="hover:opacity-70 transition-opacity"
           >
-            <img src={imgLogoLinkedin} alt="LinkedIn" className="w-[29px] h-[30px] object-contain" />
+            <img 
+              src={imgLogoLinkedin} 
+              alt="LinkedIn" 
+              className="w-[29px] h-[30px] object-contain" 
+            />
           </a>
         </div>
 
+        {/* Copyright Text */}
         <p
-          className="text-[20px] text-black"
+          className="text-sm sm:text-base md:text-[20px] text-black text-center order-1 md:order-2"
           style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: 400 }}
         >
           © 2026 Groupe Lemoine. All rights reserved

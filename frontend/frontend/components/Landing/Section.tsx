@@ -29,9 +29,9 @@ export default function Section() {
     <section
       ref={sectionRef}
       className="relative w-full overflow-hidden"
-      style={{ minHeight: "900px" }}
+      style={{ minHeight: "auto" }}
     >
-      <div className="absolute right-0 top-[-50px] w-[735px] h-[550px] pointer-events-none z-0">
+      <div className="absolute right-0 top-[-50px] w-[735px] h-[550px] pointer-events-none z-0 hidden lg:block">
         {/* Haut */}
         <motion.div
           className="absolute top-[0px] left-1/2 -translate-x-1/2"
@@ -70,9 +70,9 @@ export default function Section() {
         </motion.div>
       </div>
 
-      <div className="relative max-w-[1440px] mx-auto px-[200px] pt-[200px] z-20">
+      <div className="relative max-w-[1440px] mx-auto px-4 sm:px-6 md:px-10 lg:px-[200px] pt-[60px] sm:pt-[100px] md:pt-[150px] lg:pt-[200px] pb-16 sm:pb-20 lg:pb-24 z-20">
         <motion.h2
-          className="text-[36px] leading-[40px] font-bold text-white max-w-[743px] mb-18"
+          className="text-[28px] sm:text-[32px] md:text-[36px] leading-[36px] sm:leading-[40px] md:leading-[40px] font-bold text-white max-w-[743px] mb-6 sm:mb-12 md:mb-18"
           style={{ fontFamily: "'Helvetica LT Pro', Helvetica, Arial, sans-serif" }}
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
@@ -82,7 +82,7 @@ export default function Section() {
         </motion.h2>
 
         <motion.p
-          className="text-[16px] leading-[22px] text-white max-w-[776px] mb-10"
+          className="text-[14px] sm:text-[15px] md:text-[16px] leading-[20px] sm:leading-[22px] md:leading-[22px] text-white max-w-[776px] mb-6 sm:mb-8 md:mb-10"
           style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: 400 }}
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
@@ -97,7 +97,7 @@ export default function Section() {
         </motion.p>
 
         <motion.button
-          className="h-[45px] px-6 rounded-[25.6px] bg-[#EEF2F1] text-[#005DAA] font-bold text-[16px] uppercase tracking-wide cursor-pointer hover:bg-[#e4e9e8] transition-colors mb-16"
+          className="h-[40px] sm:h-[45px] px-4 sm:px-6 rounded-[25.6px] bg-[#EEF2F1] text-[#005DAA] font-bold text-[14px] sm:text-[16px] uppercase tracking-wide cursor-pointer hover:bg-[#e4e9e8] transition-colors mb-12 sm:mb-16"
           style={{ fontFamily: "'Helvetica LT Pro', Helvetica, Arial, sans-serif" }}
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
@@ -108,7 +108,7 @@ export default function Section() {
           EN SAVOIR PLUS
         </motion.button>
 
-        <div className="flex gap-8">
+        <div className="flex flex-col lg:flex-row gap-8">
           {cards.map((card, index) => {
             const cardRef = useRef(null);
             const isCardInView = useInView(cardRef, { once: true, amount: 0.5 });
@@ -117,8 +117,12 @@ export default function Section() {
               <motion.div
                 key={card.year}
                 ref={cardRef}
-                className="shrink-0 rounded-[12px] overflow-hidden relative"
-                style={{ width: "512px", height: "420px", border: "2px solid #5190C2" }}
+                className="w-full lg:w-[512px] rounded-[12px] overflow-hidden relative"
+                style={{ 
+                  height: "auto",
+                  aspectRatio: "512/420",
+                  border: "2px solid #5190C2" 
+                }}
                 initial={{ opacity: 0, x: index === 0 ? -50 : 50, scale: 0.95 }}
                 animate={isCardInView ? { opacity: 1, x: 0, scale: 1 } : {}}
                 transition={{ duration: 0.6, delay: 0.5 + index * 0.1 }}
@@ -132,13 +136,13 @@ export default function Section() {
                   transition={{ duration: 0.8, delay: 0.6 + index * 0.1 }}
                 />
                 <motion.div
-                  className="absolute bottom-0 left-0 right-0 bg-white px-5 py-4"
+                  className="absolute bottom-0 left-0 right-0 bg-white px-4 sm:px-5 py-3 sm:py-4"
                   initial={{ y: 100 }}
                   animate={isCardInView ? { y: 0 } : {}}
                   transition={{ duration: 0.5, delay: 0.7 + index * 0.1 }}
                 >
                   <motion.p
-                    className="text-[18px] font-bold text-[#005DAA] mb-1"
+                    className="text-[16px] sm:text-[18px] font-bold text-[#005DAA] mb-1"
                     style={{ fontFamily: "'Helvetica LT Pro', Helvetica, Arial, sans-serif" }}
                     initial={{ opacity: 0, y: 20 }}
                     animate={isCardInView ? { opacity: 1, y: 0 } : {}}
@@ -147,7 +151,7 @@ export default function Section() {
                     {card.year}
                   </motion.p>
                   <motion.p
-                    className="text-[14px] text-black leading-[20px]"
+                    className="text-[12px] sm:text-[14px] text-black leading-[18px] sm:leading-[20px]"
                     style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: 400 }}
                     initial={{ opacity: 0, y: 20 }}
                     animate={isCardInView ? { opacity: 1, y: 0 } : {}}

@@ -24,3 +24,31 @@ body {
   color: var(--foreground);
   font-family: 'Helvetica', sans-serif;
 }
+@keyframes slideDown {
+  from {
+    transform: translateY(-100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+.animate-slide-down {
+  animation: slideDown 0.3s ease-out;
+}
+
+.goog-te-banner-frame.skiptranslate {
+  display: none !important;
+}
+
+body {
+  top: 0 !important;
+}
+
+.goog-logo-link,
+.goog-te-gadget,
+.goog-te-gadget span,
+.goog-te-balloon-frame,
+#goog-gt-tt {
+  display: none !important;
+}

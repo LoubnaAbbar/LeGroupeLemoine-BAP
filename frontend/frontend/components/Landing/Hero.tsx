@@ -66,11 +66,11 @@ export default function Hero() {
         ))}
       </div>
 
-      <div className="relative max-w-[1440px] mx-auto px-[200px] pt-[104px] z-20">
+      <div className="relative max-w-[1440px] mx-auto px-4 sm:px-6 md:px-10 lg:px-[200px] pt-[60px] sm:pt-[80px] md:pt-[104px] z-20">
         <AnimatePresence mode="wait">
           <motion.h1
             key={`title-${currentIndex}`}
-            className="text-[36px] leading-[40px] font-bold text-white max-w-[688px] mb-6"
+            className="text-[28px] sm:text-[32px] md:text-[36px] leading-[36px] sm:leading-[40px] md:leading-[40px] font-bold text-white max-w-[688px] mb-4 sm:mb-6"
             style={{ fontFamily: "'Helvetica LT Pro', Helvetica, Arial, sans-serif" }}
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -84,7 +84,7 @@ export default function Hero() {
         <AnimatePresence mode="wait">
           <motion.p
             key={`desc-${currentIndex}`}
-            className="text-[16px] leading-[22px] text-white max-w-[774px] mb-8"
+            className="text-[14px] sm:text-[15px] md:text-[16px] leading-[20px] sm:leading-[22px] md:leading-[22px] text-white max-w-[774px] mb-6 sm:mb-8"
             style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: 400 }}
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}

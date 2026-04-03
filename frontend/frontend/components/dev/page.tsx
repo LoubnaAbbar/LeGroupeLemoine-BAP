@@ -59,7 +59,7 @@ export default function DeveloppementDurable() {
 
   return (
     <main className="w-full bg-white font-sans">
-      <section ref={heroRef} className="relative w-full h-[800px] overflow-hidden">
+      <section ref={heroRef} className="relative w-full h-[500px] md:h-[800px] overflow-hidden">
         <motion.img
           src="/images/dev/dev.jpeg"
           alt="Développement durable"
@@ -73,13 +73,13 @@ export default function DeveloppementDurable() {
         <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-black/20 to-transparent" />
 
         <motion.div
-          className="absolute left-90 md:left-90 bottom-24 max-w-[520px]"
+          className="absolute left-4 md:left-90 bottom-8 md:bottom-24 max-w-[520px] px-4 md:px-0"
           initial={{ opacity: 0, y: 30 }}
           animate={isHeroInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6, delay: 0.3 }}
         >
           <motion.h1
-            className="text-2xl md:text-5xl font-bold text-white mb-5 leading-tight"
+            className="text-3xl md:text-5xl font-bold text-white mb-3 md:mb-5 leading-tight"
             initial={{ opacity: 0, y: 20 }}
             animate={isHeroInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.4 }}
@@ -99,9 +99,9 @@ export default function DeveloppementDurable() {
         </motion.div>
       </section>
 
-      <section className="max-w-4xl mx-auto px-6 py-16">
+      <section className="max-w-4xl mx-auto px-4 md:px-6 py-12 md:py-16">
         <motion.h2
-          className="text-2xl font-bold text-black mb-8"
+          className="text-2xl font-bold text-black mb-6 md:mb-8 px-2 md:px-0"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
@@ -110,26 +110,32 @@ export default function DeveloppementDurable() {
         </motion.h2>
 
         <motion.div
-          className="bg-[#b8d4e8] rounded px-2 py-14"
+          className="bg-[#b8d4e8] rounded px-2 py-8 md:py-14"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
         >
-          <div className="grid grid-cols-2 md:grid-cols-4">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-0">
             {chiffres.map((c, i) => (
               <motion.div
                 key={c.label}
-                className={`flex flex-col justify-center items-start px-8 py-4 ${
-                  i < chiffres.length - 1 ? "border-r border-white/60" : ""
+                className={`flex flex-col justify-center items-start px-4 md:px-8 py-3 md:py-4 ${
+                  i % 2 === 0 && i < chiffres.length - 1 ? "border-r border-white/60 md:border-r-0" : ""
+                } ${
+                  i < chiffres.length - 2 ? "border-b border-white/60 md:border-b-0" : ""
+                } ${
+                  i === 1 ? "md:border-r border-white/60" : ""
+                } ${
+                  i === 2 ? "md:border-r-0" : ""
                 }`}
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.4, delay: 0.3 + i * 0.1 }}
               >
-                <span className="text-[17px] font-semibold text-white leading-tight">
+                <span className="text-[15px] md:text-[17px] font-semibold text-white leading-tight">
                   {c.valeur}
                 </span>
-                <span className="text-[17px] font-semibold text-white leading-tight">
+                <span className="text-[15px] md:text-[17px] font-semibold text-white leading-tight">
                   {c.label}
                 </span>
               </motion.div>
@@ -138,8 +144,8 @@ export default function DeveloppementDurable() {
         </motion.div>
       </section>
 
-      <section className="max-w-4xl mx-auto px-6 pb-24">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-20 gap-y-16">
+      <section className="max-w-4xl mx-auto px-4 md:px-6 pb-16 md:pb-24">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-x-20 md:gap-y-16">
           {engagements.map((e, i) => {
             const ref = useRef(null);
             const isInView = useInView(ref, { once: true, amount: 0.3 });
@@ -154,7 +160,7 @@ export default function DeveloppementDurable() {
                 transition={{ duration: 0.5, delay: i * 0.1 }}
               >
                 <motion.div
-                  className="flex items-center justify-center mb-5"
+                  className="flex items-center justify-center mb-4 md:mb-5"
                   initial={{ opacity: 0, scale: 0.5 }}
                   animate={isInView ? { opacity: 1, scale: 1 } : {}}
                   transition={{ duration: 0.5, delay: 0.2 + i * 0.1 }}
@@ -162,11 +168,11 @@ export default function DeveloppementDurable() {
                   <img
                     src={e.icon}
                     alt={`Icône engagement ${i + 1}`}
-                    className="w-20 h-20 object-contain"
+                    className="w-16 h-16 md:w-20 md:h-20 object-contain"
                   />
                 </motion.div>
                 <motion.p
-                  className="text-sm text-black leading-relaxed max-w-xs"
+                  className="text-sm text-black leading-relaxed max-w-xs px-2 md:px-0"
                   initial={{ opacity: 0 }}
                   animate={isInView ? { opacity: 1 } : {}}
                   transition={{ duration: 0.4, delay: 0.3 + i * 0.1 }}

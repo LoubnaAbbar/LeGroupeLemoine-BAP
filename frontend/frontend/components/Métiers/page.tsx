@@ -55,7 +55,7 @@ export default function NosMetiers() {
       {/* ── HERO IMAGE ── */}
       <motion.section
         ref={heroRef}
-        className="w-full h-[530px] overflow-hidden"
+        className="w-full h-[300px] sm:h-[400px] md:h-[530px] overflow-hidden"
         initial={{ opacity: 0 }}
         animate={isHeroInView ? { opacity: 1 } : {}}
         transition={{ duration: 0.8 }}
@@ -71,9 +71,9 @@ export default function NosMetiers() {
       </motion.section>
 
       {/* ── CHAQUE MÉTIER ── */}
-      <section className="max-w-4xl mx-auto px-6 py-16">
+      <section className="max-w-4xl mx-auto px-4 sm:px-6 py-12 sm:py-16">
         <motion.h1
-          className="text-3xl font-semibold text-black mb-10"
+          className="text-2xl sm:text-3xl font-semibold text-black mb-6 sm:mb-10"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
@@ -82,7 +82,7 @@ export default function NosMetiers() {
         </motion.h1>
 
         {/* Grid 2 colonnes */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-6 md:gap-x-8 gap-y-8 md:gap-y-12">
           {metiers.map((metier, index) => {
             const ref = useRef(null);
             const isInView = useInView(ref, { once: true, amount: 0.3 });
@@ -96,7 +96,7 @@ export default function NosMetiers() {
                 transition={{ duration: 0.5, delay: index * 0.1 }}
               >
                 <motion.div
-                  className="w-full h-52 overflow-hidden mb-5"
+                  className="w-full h-40 sm:h-48 md:h-52 overflow-hidden mb-4 sm:mb-5"
                   initial={{ opacity: 0 }}
                   animate={isInView ? { opacity: 1 } : {}}
                   transition={{ duration: 0.5, delay: 0.1 }}
@@ -110,7 +110,7 @@ export default function NosMetiers() {
                   />
                 </motion.div>
                 <motion.h2
-                  className="text-lg font-semibold text-black mb-3"
+                  className="text-base sm:text-lg font-semibold text-black mb-2 sm:mb-3"
                   initial={{ opacity: 0, x: -20 }}
                   animate={isInView ? { opacity: 1, x: 0 } : {}}
                   transition={{ duration: 0.4, delay: 0.2 }}
@@ -119,7 +119,7 @@ export default function NosMetiers() {
                 </motion.h2>
                 {metier.subtitle && (
                   <motion.h3
-                    className="text-base font-semibold text-black mb-3"
+                    className="text-sm sm:text-base font-semibold text-black mb-2 sm:mb-3"
                     initial={{ opacity: 0, x: -20 }}
                     animate={isInView ? { opacity: 1, x: 0 } : {}}
                     transition={{ duration: 0.4, delay: 0.25 }}
@@ -135,21 +135,21 @@ export default function NosMetiers() {
                   {metier.paragraphs.map((para, idx) => (
                     <p
                       key={idx}
-                      className={`text-sm text-black leading-relaxed ${idx < metier.paragraphs.length - 1 ? 'mb-3' : ''}`}
+                      className={`text-xs sm:text-sm text-black leading-relaxed ${idx < metier.paragraphs.length - 1 ? 'mb-2 sm:mb-3' : ''}`}
                       dangerouslySetInnerHTML={{ __html: para }}
                     />
                   ))}
                   {metier.certifications && (
                     <>
-                      <ul className="text-sm text-black leading-relaxed space-y-1.5 mt-2">
+                      <ul className="text-xs sm:text-sm text-black leading-relaxed space-y-1.5 mt-2">
                         {metier.certifications.map((item) => (
                           <li key={item} className="flex gap-2 items-start">
-                            <span className="mt-2 w-1 h-1 rounded-full bg-black shrink-0" />
-                            {item}
+                            <span className="mt-1.5 sm:mt-2 w-1 h-1 rounded-full bg-black shrink-0" />
+                            <span className="text-xs sm:text-sm">{item}</span>
                           </li>
                         ))}
                       </ul>
-                      <p className="text-xs text-black mt-2 italic">
+                      <p className="text-[10px] sm:text-xs text-black mt-2 italic">
                         *coton issu de l'agriculture biologique
                       </p>
                     </>
@@ -162,7 +162,7 @@ export default function NosMetiers() {
       </section>
 
       {/* ── SÉPARATEUR + BASELINE ── */}
-      <div className="max-w-4xl mx-auto px-6">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6">
         <motion.hr
           className="border-black"
           initial={{ scaleX: 0 }}
@@ -170,15 +170,15 @@ export default function NosMetiers() {
           transition={{ duration: 0.6, delay: 0.2 }}
         />
         <motion.div
-          className="py-10"
+          className="py-6 sm:py-8 md:py-10"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.3 }}
         >
-          <p className="text-sm text-black mb-1">
+          <p className="text-xs sm:text-sm text-black mb-1">
             Des métiers complémentaires, une même exigence
           </p>
-          <p className="text-sm text-black">
+          <p className="text-xs sm:text-sm text-black">
             Production, qualité, logistique et RH avancent main dans la main vers
             un objectif commun.
           </p>
@@ -191,7 +191,7 @@ export default function NosMetiers() {
         />
       </div>
 
-      <div className="h-16" />
+      <div className="h-12 sm:h-16" />
     </main>
   );
 }

@@ -65,7 +65,7 @@ function ValueIcon({ src }: { src: string }) {
       animate={isInView ? { opacity: 1, scale: 1 } : {}}
       transition={{ duration: 0.5, delay: 0.2 }}
     >
-      <img src={src} alt="" className="w-[200px] h-[200px] object-contain" />
+      <img src={src} alt="" className="w-[120px] h-[120px] sm:w-[160px] sm:h-[160px] md:w-[200px] md:h-[200px] object-contain" />
     </motion.div>
   );
 }
@@ -75,7 +75,7 @@ export default function NosValeursPage() {
     <main className="min-h-screen bg-[#F3F3F3] text-black">
       <section className="relative w-full">
         <motion.div
-          className="relative h-[620px] w-full bg-[#ECECEC] md:h-[760px]"
+          className="relative h-[500px] sm:h-[560px] md:h-[620px] lg:h-[760px] w-full bg-[#ECECEC]"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.6 }}
@@ -98,7 +98,7 @@ export default function NosValeursPage() {
           <div className="absolute inset-0 bg-black/10" />
 
           <motion.div
-            className="absolute bottom-[-250px] left-0 z-10 w-full"
+            className="absolute bottom-[-150px] sm:bottom-[-200px] md:bottom-[-250px] left-0 z-10 w-full"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.3 }}
@@ -110,10 +110,10 @@ export default function NosValeursPage() {
             />
           </motion.div>
 
-          <div className="absolute left-1/2 bottom-[0px] z-20 w-full max-w-[1150px] -translate-x-1/2 px-6 md:bottom-[10px]">
+          <div className="absolute left-1/2 bottom-[0px] z-20 w-full max-w-[1150px] -translate-x-1/2 px-4 sm:px-6 md:bottom-[10px]">
             <div className="max-w-[760px]">
               <motion.h1
-                className="text-[28px] font-bold leading-tight text-white md:text-[54px]"
+                className="text-[24px] sm:text-[32px] md:text-[44px] lg:text-[54px] font-bold leading-tight text-white"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.2 }}
@@ -122,7 +122,7 @@ export default function NosValeursPage() {
               </motion.h1>
 
               <motion.p
-                className="mt-6 max-w-[520px] text-[15px] leading-[1.6] text-white md:text-[20px]"
+                className="mt-4 sm:mt-6 max-w-[520px] text-[14px] sm:text-[16px] md:text-[18px] lg:text-[20px] leading-[1.6] text-white"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.4 }}
@@ -134,8 +134,8 @@ export default function NosValeursPage() {
         </motion.div>
       </section>
 
-      <section className="mx-auto max-w-[1150px] px-6 pb-24 pt-24 md:pt-32">
-        <div className="mt-16 space-y-20 md:space-y-24">
+      <section className="mx-auto max-w-[1150px] px-4 sm:px-6 pb-16 sm:pb-20 md:pb-24 pt-16 sm:pt-20 md:pt-24 lg:pt-32">
+        <div className="mt-8 sm:mt-12 md:mt-16 space-y-16 sm:space-y-20 md:space-y-24">
           {values.map((item, index) => {
             const ref = useRef(null);
             const isInView = useInView(ref, { once: true, amount: 0.3 });
@@ -149,24 +149,24 @@ export default function NosValeursPage() {
                 transition={{ duration: 0.5 }}
               >
                 {index % 2 === 0 ? (
-                  <div className="grid items-center gap-10 md:grid-cols-[200px_minmax(0,1fr)_200px]">
+                  <div className="grid items-center gap-6 sm:gap-8 md:gap-10 md:grid-cols-[160px_minmax(0,1fr)_160px] lg:grid-cols-[200px_minmax(0,1fr)_200px]">
                     <div className="flex justify-center md:order-1">
                       <ValueIcon src={valueIcons[index]} />
                     </div>
 
-                    <div className="md:order-2 max-w-[620px]">
-                      <div className="flex items-start gap-4">
+                    <div className="md:order-2 max-w-[620px] mx-auto md:mx-0">
+                      <div className="flex items-start gap-3 sm:gap-4">
                         <motion.span
-                          className="min-w-[28px] text-[58px] font-bold leading-[0.9] text-[#005DAA]"
+                          className="min-w-[24px] sm:min-w-[28px] text-[42px] sm:text-[50px] md:text-[58px] font-bold leading-[0.9] text-[#005DAA]"
                           initial={{ opacity: 0, x: -20 }}
                           animate={isInView ? { opacity: 1, x: 0 } : {}}
                           transition={{ duration: 0.4, delay: 0.1 }}
                         >
                           {item.letter}
                         </motion.span>
-                        <div className="pt-2">
+                        <div className="pt-1 sm:pt-2">
                           <motion.h3
-                            className="text-[22px] font-bold leading-tight"
+                            className="text-[18px] sm:text-[20px] md:text-[22px] font-bold leading-tight"
                             initial={{ opacity: 0 }}
                             animate={isInView ? { opacity: 1 } : {}}
                             transition={{ duration: 0.4, delay: 0.2 }}
@@ -175,7 +175,7 @@ export default function NosValeursPage() {
                             <span className="text-[#005DAA]">{item.titleHighlight}</span>
                           </motion.h3>
                           <motion.div
-                            className="mt-4 space-y-3 text-[16px] leading-[1.55]"
+                            className="mt-3 sm:mt-4 space-y-2 sm:space-y-3 text-[14px] sm:text-[15px] md:text-[16px] leading-[1.55]"
                             initial={{ opacity: 0 }}
                             animate={isInView ? { opacity: 1 } : {}}
                             transition={{ duration: 0.4, delay: 0.3 }}
@@ -202,22 +202,22 @@ export default function NosValeursPage() {
                     <div className="hidden md:block md:order-3" />
                   </div>
                 ) : (
-                  <div className="grid items-center gap-10 md:grid-cols-[200px_minmax(0,1fr)_200px]">
+                  <div className="grid items-center gap-6 sm:gap-8 md:gap-10 md:grid-cols-[160px_minmax(0,1fr)_160px] lg:grid-cols-[200px_minmax(0,1fr)_200px]">
                     <div className="hidden md:block md:order-1" />
 
-                    <div className="md:order-2 max-w-[620px]">
-                      <div className="flex items-start gap-4">
+                    <div className="md:order-2 max-w-[620px] mx-auto md:mx-0">
+                      <div className="flex items-start gap-3 sm:gap-4">
                         <motion.span
-                          className="min-w-[28px] text-[58px] font-bold leading-[0.9] text-[#005DAA]"
+                          className="min-w-[24px] sm:min-w-[28px] text-[42px] sm:text-[50px] md:text-[58px] font-bold leading-[0.9] text-[#005DAA]"
                           initial={{ opacity: 0, x: -20 }}
                           animate={isInView ? { opacity: 1, x: 0 } : {}}
                           transition={{ duration: 0.4, delay: 0.1 }}
                         >
                           {item.letter}
                         </motion.span>
-                        <div className="pt-2">
+                        <div className="pt-1 sm:pt-2">
                           <motion.h3
-                            className="text-[22px] font-bold leading-tight"
+                            className="text-[18px] sm:text-[20px] md:text-[22px] font-bold leading-tight"
                             initial={{ opacity: 0 }}
                             animate={isInView ? { opacity: 1 } : {}}
                             transition={{ duration: 0.4, delay: 0.2 }}
@@ -226,7 +226,7 @@ export default function NosValeursPage() {
                             <span className="text-[#005DAA]">{item.titleHighlight}</span>
                           </motion.h3>
                           <motion.div
-                            className="mt-4 space-y-3 text-[16px] leading-[1.55]"
+                            className="mt-3 sm:mt-4 space-y-2 sm:space-y-3 text-[14px] sm:text-[15px] md:text-[16px] leading-[1.55]"
                             initial={{ opacity: 0 }}
                             animate={isInView ? { opacity: 1 } : {}}
                             transition={{ duration: 0.4, delay: 0.3 }}
@@ -264,7 +264,7 @@ export default function NosValeursPage() {
       <motion.button
         type="button"
         onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-        className="fixed bottom-8 right-8 flex h-[58px] w-[58px] items-center justify-center rounded-[10px] bg-white shadow-[0_8px_20px_rgba(0,0,0,0.12)] cursor-pointer"
+        className="fixed bottom-4 sm:bottom-6 md:bottom-8 right-4 sm:right-6 md:right-8 flex h-[48px] w-[48px] sm:h-[52px] sm:w-[52px] md:h-[58px] md:w-[58px] items-center justify-center rounded-[10px] bg-white shadow-[0_8px_20px_rgba(0,0,0,0.12)] cursor-pointer"
         aria-label="Retour en haut"
         initial={{ opacity: 0, scale: 0 }}
         animate={{ opacity: 1, scale: 1 }}
@@ -272,7 +272,7 @@ export default function NosValeursPage() {
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
       >
-        <ChevronUp className="text-[#2E6E9E]" size={28} />
+        <ChevronUp className="text-[#2E6E9E]" size={24} />
       </motion.button>
     </main>
   );
